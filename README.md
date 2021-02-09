@@ -2,7 +2,7 @@
 
 - Docker up
 
-`docker-composer run -d --build`
+`docker-compose up -d --build`
 
 - Install components
 
