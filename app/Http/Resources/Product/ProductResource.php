@@ -12,6 +12,7 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'price' => $this->price,
             'count' => $this->count,
+            'properties' => PropertyResource::collection($this->properties)
         ];
     }
 }
