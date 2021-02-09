@@ -13,6 +13,11 @@ class Product extends Model
         'name', 'price', 'count'
     ];
 
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
+
     public function scopeFilter($query, ...$filters)
     {
         foreach ($filters as $filter) {

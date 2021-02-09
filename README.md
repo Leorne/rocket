@@ -48,10 +48,9 @@
        "password": "Andrew!"
        }`
 
-
-
+       
 
 - Get products (with bearer token)
     - Route ---> /products (GET)
     - Query string for multiple filter
-    `localhost:8080/products?properties[count][]=10&properties[price][]=1500&properties[price][]=2000`
+    `localhost:8080/products?properties[main_color][]=green&properties[main_color][]=red&properties[second_color][]=blue`

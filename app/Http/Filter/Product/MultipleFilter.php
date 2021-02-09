@@ -36,7 +36,14 @@ class MultipleFilter extends Filter implements FilterInterface
     protected function multiple(string $name, array $options): void
     {
         foreach ($options as $option) {
-            $this->builder->orWhere($name, $option);
+            $this->builder->orWhereHas('properties', function ($propertyQuery) use($name, $option){
+                $propertyQuery->whereHas('name', function ($nameQuery) use ($name){
+                    $nameQuery->where('name', $name);
+                });
+                $propertyQuery->whereHas('value', function ($valueQuery) use ($option){
+                    $valueQuery->where('value', $option);
+                });
+            });
         }
     }
 }

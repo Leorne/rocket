@@ -8,6 +8,7 @@ use App\Http\Filter\Product\MultipleFilterDto;
 use App\Http\Requests\Api\Product\IndexRequest;
 use App\Http\Resources\Product\ProductResource;
 use App\Models\Product\Product;
+use App\Models\Product\Property;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProductController extends Controller
@@ -16,6 +17,8 @@ class ProductController extends Controller
 
     public function index(IndexRequest $request, MultipleFilter $filter) : ResourceCollection
     {
+//        $test = Property::first();
+
         $request->validated();
 
         $products = Product::filter($filter->setData(new MultipleFilterDto($request->properties)));
